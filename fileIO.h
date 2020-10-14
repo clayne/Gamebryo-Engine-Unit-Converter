@@ -50,13 +50,13 @@ inline std::vector<std::string> fileRead(std::string filepath, char delim = '\n'
  * fileWrite(string, stringstream, char)
  * Writes a stringstream to target file. Endlines must be included in the stringstream to appear in the file.
  *
- * @param filepath	 - The full filepath including file name & extension
- * @param data		 - sstream ref containing data to write to file
- * @param delim		 - Each occurrence of this char in the stream will be put on a new line.
- * @param final_line - String that will be appended to the stream on the final line.
- * @returns boolean	 - ( true = successful ) ( false = failed to write )
+ * @param filepath	- The full filepath including file name & extension
+ * @param data		- sstream ref containing data to write to file
+ * @param delim		- Each occurrence of this char in the stream will be put on a new line.
+ * @param fixedNum	- Setting this to true will force all numbers to standard notation
+ * @returns boolean	- ( true = successful ) ( false = failed to write )
  */
-inline bool fileWrite(std::string filepath, std::stringstream& data, char delim = '\n', std::string final_line = "\t\\ \\ \\  END  / / /")
+inline bool fileWrite(std::string filepath, std::stringstream& data, char delim = '\n')
 {
 	// create the output filestream
 	std::ofstream file;
@@ -65,7 +65,7 @@ inline bool fileWrite(std::string filepath, std::stringstream& data, char delim 
 	// check if file is open
 	if (file.is_open())	{
 		// write data stream to file
-		file << data.rdbuf() << final_line;
+		file << data.rdbuf() << "\t\\ \\ \\  END  / / /";
 
 		// close the file
 		file.close();
@@ -75,56 +75,7 @@ inline bool fileWrite(std::string filepath, std::stringstream& data, char delim 
 	}
 	// error, return false
 	return false;
-}
 
-/**
- * fileWrite(string, vector<string>, char)
- * Writes a vector of strings to target file, indexed by line.
- *
- * @param filepath	- The full filepath including file name & extension
- * @param data		- vector containing data to write to file.
- * @returns boolean	- ( true = successful ) ( false = failed to write )
- */
-inline bool fileWrite(std::string filepath, std::vector<std::string> data)
-{
-	// create the output filestream
-	std::ofstream file;
-	// attempt to open new file for writing
-	file.open(filepath);
-	// check if file is open
-	if (file.is_open()) {
-		// iterate through data vector
-		for (auto it = data.begin(); it != data.end(); it++) {
-			// copy each element to file
-			file << *it;
-		}
-
-		// close the file
-		file.close();
-
-		// success, return true
-		return true;
-	}
-	// error, return false
-	return false;
-}
-
-/**
- * fileVerify(string)
- * Determines whether a given file path exists already
- * 
- * @param path		- The full location of the file to check
- * @returns bool	- ( true = file exists ) ( false = file does not exist )
- */
-inline bool fileVerify(std::string path)
-{
-	// quickly open the file if possible
-	if (FILE* f = fopen(path.c_str(), "r")) {
-		fclose(f); // close the file
-		return true; // return true
-	}
-	else // file couldn't be opened
-		return false; // return false
 }
 
 /**
