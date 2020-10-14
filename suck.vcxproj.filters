@@ -23,9 +23,6 @@
     <ClInclude Include="globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="fileIO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="functions.cpp">
       <Filter>Source Files</Filter>
     </ClInclude>

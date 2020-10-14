@@ -34,13 +34,13 @@ int main(int argc, char* argv[]) // char * envp[] = {} // omit environment varia
 		}
 		// break and return 1 for error
 		break;
-	case 2: // user included a single argument
+	/*case 2: // user included a single argument
 		if (processFile(argv[1])) { // if successful
 			std::cout << termcolor::green << "\tDone processing file." << termcolor::reset << std::endl;
 			return success();
 		} // else print help
 		printHelp();
-		return success();
+		return success();*/
 	default:
 		std::cout << termcolor::red << "\tNo arguments were included!\n" << termcolor::reset;
 		printHelp(1);

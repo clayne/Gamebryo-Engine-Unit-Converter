@@ -19,7 +19,7 @@ void printHelp(bool pause = false)
 	// flush console output buffer
 	std::cout.flush();
 	// display help text
-	std::cout << " ARGUMENTS:\n\t<input unit> is the unit type you want to convert (Units|Meters|Feet)\n\t<value> is the value to convert (> 0.0)\n\t<output unit> is the converted unit type. (Units|Meters|Feet)\n\tOR\n\t<filepath> to convert a text file.\n\n";
+	std::cout << " ARGUMENTS:\n\t<input unit> is the unit type you want to convert (Units|Meters|Feet)\n\t<value> is the value to convert (> 0.0)\n\t<output unit> is the converted unit type. (Units|Meters|Feet)\n\n";
 	// check if pause is true before proceeding.
 	if (!pause)
 		return;
@@ -259,7 +259,7 @@ inline int printResult(Value input, type outputType)
  * @param filename	- The full filepath including file name & extension
  * @returns bool	- ( true = success ) ( false = fail )
  */
-inline bool processFile(std::string filename)
+/*inline bool processFile(std::string filename)
 {
 	// Get the contents of file separated by line
 	std::vector<std::string> fileContent = fileRead(filename);
@@ -295,4 +295,4 @@ inline bool processFile(std::string filename)
 	}
 	// write outputStream to file with -conv appended to the name, then return success/fail val from filewrite
 	return fileWrite(fileExtendName(filename, "-conv"), outputStream);
-}
+}*/
