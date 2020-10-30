@@ -58,3 +58,6 @@ Debug/Docs/termcolorlib-LICENSE
 *.aps
 *.user
 .vs/Gamebryo Unit Converter/v16/.suo
+Gamebryo Converter/Gamebryo Converter.vcxproj
+Gamebryo Converter/Gamebryo Converter.vcxproj.filters
+*.sln
